@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "./App.module.css";
 import FruitsList from "./components/UI/Fruitslist/FruitsList";
-import Form from "./components/UI/FORM/Form";
+import Form from "./components/UI/Form/Form";
 
 function App() {
   const [openForm, setOpenForm] = useState(false);
