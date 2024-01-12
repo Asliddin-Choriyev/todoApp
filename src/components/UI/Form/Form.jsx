@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import { useState } from "react";
 import styles from "./Form.module.css";
 import Modal from "../Modal/Modal";
 
@@ -24,14 +24,14 @@ const Form = (props) => {
       }
       return;
     }
-    props.setFruits((fruits) => {
+    props.setProducts((Products) => {
       const obj = {
         id: Date.now().toString(),
         name: changeInputValue,
         price: changePriceInput,
       };
-      const value = fruits?.length > 0 ? [...fruits, obj] : [obj];
-      localStorage.setItem("fruits", JSON.stringify(value));
+      const value = Products?.length > 0 ? [...Products, obj] : [obj];
+      localStorage.setItem("Products", JSON.stringify(value));
       return value;
     });
     props.openHandler((prevV) => !prevV);
@@ -69,7 +69,7 @@ const Form = (props) => {
       <label htmlFor="">
         <input
           type="text"
-          placeholder="Fruit"
+          placeholder="Product name"
           onChange={changeInputHandler}
           value={changeInputValue}
           className={`${errName ? styles.error : ""} ${

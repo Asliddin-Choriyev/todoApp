@@ -7,6 +7,10 @@
   color: white;
   transform: translateY(45px);
   margin-left: 450px;
+  -webkit-transform: translateY(45px);
+  -moz-transform: translateY(45px);
+  -ms-transform: translateY(45px);
+  -o-transform: translateY(45px);
 }
 
 .form {

@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import styles from "./App.module.css";
-import FruitsList from "./components/UI/Fruitslist/FruitsList";
+import ProductsList from "./components/UI/Productslist/ProductsList";
 import Form from "./components/UI/Form/Form";
 
 function App() {
   const [openForm, setOpenForm] = useState(false);
-  const [fruits, setFruits] = useState([]);
+  const [Products, setProducts] = useState([]);
   const openFormHandler = (setInputValue) => {
     setOpenForm(!openForm);
     if (setInputValue) {
@@ -13,30 +13,30 @@ function App() {
     }
   };
   useEffect(() => {
-    if (fruits.length === 0) {
-      const storageFruits = JSON.parse(localStorage.getItem("fruits"));
-      setFruits(storageFruits);
+    if (Products.length === 0) {
+      const storageProducts = JSON.parse(localStorage.getItem("Products"));
+      setProducts(storageProducts);
     }
   }, []);
 
   const deleteHandler = (id) => {
-    setFruits((prevF) => {
+    setProducts((prevF) => {
       const value = prevF.filter((f) => f.id !== id);
-      localStorage.setItem("fruits", JSON.stringify(value));
+      localStorage.setItem("Products", JSON.stringify(value));
       return value;
     });
   };
   return (
     <div className={styles.container}>
-      <h1>Fruits</h1>
-      <FruitsList fruits={fruits} deleteHandler={deleteHandler} />
-      {openForm && <Form setFruits={setFruits} openHandler={setOpenForm} />}
+      <h1>Products</h1>
+      <ProductsList Products={Products} deleteHandler={deleteHandler} />
+      {openForm && <Form setProducts={setProducts} openHandler={setOpenForm} />}
 
       <button
         onClick={openFormHandler.bind(null, false)}
         className={styles.btn}
       >
-        {openForm ? "cancel" : "New Fruit +"}
+        {openForm ? "cancel" : "New Product +"}
       </button>
     </div>
   );

@@ -1,10 +1,10 @@
-import styles from "./FruitsList.module.css";
+import styles from "./ProductsList.module.css";
 
-const FruitsList = (props) => {
+const ProductsList = (props) => {
   return (
     <ul className={styles.list}>
-      {props?.fruits?.length > 0
-        ? props?.fruits?.map((f) => {
+      {props?.Products?.length > 0
+        ? props?.Products?.map((f) => {
             return (
               <li key={f.id}>
                 {f.name}
@@ -21,4 +21,4 @@ const FruitsList = (props) => {
   );
 };
 
-export default FruitsList;
+export default ProductsList;
